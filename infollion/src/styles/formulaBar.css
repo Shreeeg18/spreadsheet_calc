@@ -1,0 +1,32 @@
+/* Formula Bar Styles - Additional specific styles */
+
+.formula-bar {
+  background-color: #f8fafc;
+}
+
+.formula-bar__cell-ref {
+  background-color: #f5f7fa;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border-subtle);
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-feature-settings: "zero";
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.formula-bar__input {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.formula-bar__input:focus {
+  background-color: #ffffff;
+}
+
+.formula-bar__input::placeholder {
+  color: var(--color-text-muted);
+}

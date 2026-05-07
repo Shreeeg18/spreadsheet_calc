@@ -1,0 +1,130 @@
+/* Cell Component Styles */
+
+.cell {
+  width: var(--cell-size);
+  height: 32px;
+  border-right: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background-color: var(--color-bg-cell);
+  display: flex;
+  align-items: stretch;
+  cursor: cell;
+  user-select: none;
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color 0.12s ease-out, box-shadow 0.12s ease-out;
+}
+
+.cell:hover:not(.cell--selected):not(.cell--editing) {
+  background-color: #f0f4f8;
+}
+
+.cell--selected {
+  background-color: #e8f1ff;
+  border-right: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+  border-left: 3px solid var(--color-primary);
+  border-top: 3px solid var(--color-primary);
+  z-index: 50;
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.15);
+}
+
+.cell--selected .cell__display {
+  padding-left: 8px;
+}
+
+.cell--editing {
+  background-color: #ffffff;
+  border-right: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+  border-left: 2px solid var(--color-primary);
+  border-top: 2px solid var(--color-primary);
+  z-index: 51;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.15);
+}
+
+.cell--formula {
+  background-color: #f0f7ff;
+}
+
+.cell--formula.cell--selected {
+  background-color: #c7e1ff;
+}
+
+.cell--formula.cell--editing {
+  background-color: #ffffff;
+}
+
+.cell--error {
+  background-color: #fef2f2;
+}
+
+.cell--error .cell__display {
+  color: var(--color-error);
+  font-weight: 500;
+}
+
+.cell--dependency {
+  background-color: #e0f2fe;
+}
+
+.cell--dependent {
+  background-color: #fef9e7;
+}
+
+.cell__display {
+  flex: 1;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+  color: var(--color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "zero";
+}
+
+.cell__input {
+  flex: 1;
+  border: none;
+  padding: 6px 10px;
+  font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--color-text-primary);
+  outline: none;
+  background-color: white;
+  transition: background-color 0.1s ease-out;
+  font-feature-settings: "zero";
+}
+
+.cell__input:focus {
+  background-color: white;
+}
+
+/* Cell Value Alignment */
+
+.cell__display {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/* Empty Cell */
+
+.cell:empty {
+  background-color: white;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .cell {
+    font-size: 12px;
+  }
+  
+  .cell__input {
+    font-size: 11px;
+  }
+}
