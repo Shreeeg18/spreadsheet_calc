@@ -190,7 +190,7 @@ body {
 
 .grid {
   flex: 1;
-  overflow: auto;
+  overflow: hidden;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -207,8 +207,12 @@ body {
   z-index: 100;
   background-color: #f5f7fa;
   border-bottom: 1px solid var(--color-border-light);
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
+}
+
+.header-row__scroll {
+  display: flex;
+  will-change: transform;
 }
 
 .header-row__corner {
@@ -247,6 +251,28 @@ body {
 .grid__body {
   flex: 1;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(37, 99, 235, 0.7) transparent;
+}
+
+.grid__body::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.grid__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.grid__body::-webkit-scrollbar-thumb {
+  background-color: rgba(37, 99, 235, 0.5);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.grid__body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(37, 99, 235, 0.75);
 }
 
 .grid__row {

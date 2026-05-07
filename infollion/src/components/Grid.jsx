@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState, useEffect } from 'react';
+import React, { useCallback, useMemo, useRef, useEffect } from 'react';
 import Cell from './Cell.jsx';
 import HeaderRow from './HeaderRow.jsx';
 import RowLabel from './RowLabel.jsx';
@@ -29,7 +29,7 @@ const Grid = React.memo(({
   
   const handleScroll = useCallback(() => {
     if (gridBodyRef.current && headerRowRef.current) {
-      headerRowRef.current.scrollLeft = gridBodyRef.current.scrollLeft;
+      headerRowRef.current.style.transform = `translateX(-${gridBodyRef.current.scrollLeft}px)`;
     }
   }, []);
   
